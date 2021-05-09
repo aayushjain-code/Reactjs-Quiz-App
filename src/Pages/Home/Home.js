@@ -3,13 +3,26 @@ import "./Home.css";
 import { Button, MenuItem, TextField } from "@material-ui/core"
 import Categories from "../../Data/Categories";
 import { useState } from 'react';
+import { useHistory } from 'react-router';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
-
-const Home = ({ name, setName }) => {
+const Home = ({ name, setName, fetchQuestions }) => {
 	const [category, setCategory] = useState("");
 	const [difficulty, setDifficulty] = useState("");
+	const [error, setError] = useState(false);
 
+	const history = useHistory();
 
+	const handleSubmit = () => {
+		if (!category || !difficulty || !name) {
+			setError(true);
+			return;
+		} else {
+			setError(false);
+			fetchQuestions(category, difficulty);
+			history.push("/quiz");
+		}
+	};
 
 
 
@@ -19,6 +32,8 @@ const Home = ({ name, setName }) => {
 			<div>
 				<span style={{ fontSize: 30 }}>Quiz Settings</span>
 				<div className="settings__select">
+
+					{error && <ErrorMessage>Please Fill all the Fields</ErrorMessage>}
 					<TextField
 						style={{ marginBottom: 25 }} label="Enter Your Name" Variant="outlined"
 						onChange={(e) => setName(e.target.value)}
@@ -55,7 +70,8 @@ const Home = ({ name, setName }) => {
 							Hard
                          </MenuItem>
 					</TextField>
-					<Button variant="contained" color="primary" size="large">
+					<Button variant="contained" color="primary" size="large"
+						onClick={handleSubmit}>
 						Start Quiz
 							</Button>
 
