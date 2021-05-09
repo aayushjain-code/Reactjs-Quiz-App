@@ -9,8 +9,6 @@ function App() {
     <BrowserRouter>
       <div className="app" style={{ backgroundImage: 'url("/ques1.png")' }}>
         <Header />
-
-
       </div >
       <Footer />
     </BrowserRouter>
