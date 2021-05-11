@@ -1,3 +1,4 @@
+import { CircularProgress } from '@material-ui/core';
 import React, { useEffect, useState } from 'react'
 
 const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
@@ -26,7 +27,16 @@ const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
 
 	return (
 		<div>
-			<h1>Quiz page</h1>
+			<span className="subtitle">Welcome,{name}</span>
+
+			{questions ? <>Questions</> : (
+				<CircularProgress
+					style={{ margin: 100 }}
+					color="inherit"
+					size={150}
+					thickness={1}
+				/>
+			)}
 		</div>
 	)
 }
