@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 
 * {
 	margin: 0;
@@ -22,7 +22,7 @@ a {
 
 .app {
 	min-height: 98.5vh;
-	border: 8px solid #39445a93;
+	border: 8px solid #000000;
 	/* background-color: white; */
 	margin: 5px;
 	padding: 5px;
